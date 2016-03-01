@@ -436,7 +436,7 @@ module.exports = function(grunt) {
       .replace(/\\/g, '\\\\')
       .replace(/'/g, "\\'")
       .replace(/\r?\n/g, '\\n');
-    js = `angular.module('ui.bootstrap.${moduleName}').run(function() {!angular.$$csp().noInlineStyle && angular.element(document).find('head').prepend('<style type="text/css">${css}</style>'); });`;
+    js = `angular.module('ui.bootstrap.${moduleName}').run(function() {!angular.$$csp().noInlineStyle && angular.$$uibInjectCss && angular.element(document).find('head').prepend('<style type="text/css">${css}</style>'); });`;
     state.js.push(js);
 
     return state;
